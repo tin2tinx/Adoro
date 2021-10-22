@@ -20,7 +20,7 @@ jobs:
     uses: script@v1
     with:
       script: |-
-        export http_proxy=socks5://65.2.123.108:443
+        #export http_proxy=socks5://65.2.123.108:443
         apt install wget
         
         apt install libpci3
